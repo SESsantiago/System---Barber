@@ -6,7 +6,7 @@ const api = {
     const res = await fetch(`${API_BASE}/${endpoint}`);
     if (!res.ok) throw new Error(`Error GET /${endpoint}: ${res.status}`);
     return res.json();
-  , //Aqui iba un corchete de cierre
+  },
 
   async post(endpoint, body) {
     const res = await fetch(`${API_BASE}/${endpoint}`, {
