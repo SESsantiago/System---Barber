@@ -1,0 +1,22 @@
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+
+# Node
+node_modules/
+frontend/css/output.css
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Credenciales (¡nunca subir esto a Git!)
+application.properties

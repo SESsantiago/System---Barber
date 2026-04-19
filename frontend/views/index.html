@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbería System — Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-gray-900 text-white px-6 py-4 flex items-center justify-between">
+    <h1 class="text-xl font-bold tracking-wide">✂️ Barbería System</h1>
+    <span class="text-sm text-gray-400">Dashboard</span>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="max-w-6xl mx-auto p-6">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Panel principal</h2>
+
+    <!-- Tarjetas resumen -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+      <a href="clientes.html" class="bg-white rounded-xl shadow p-5 hover:shadow-md transition">
+        <p class="text-gray-500 text-sm">Clientes</p>
+        <p class="text-3xl font-bold text-gray-800 mt-1" id="total-clientes">—</p>
+      </a>
+      <a href="citas.html" class="bg-white rounded-xl shadow p-5 hover:shadow-md transition">
+        <p class="text-gray-500 text-sm">Citas hoy</p>
+        <p class="text-3xl font-bold text-gray-800 mt-1" id="total-citas">—</p>
+      </a>
+      <a href="productos.html" class="bg-white rounded-xl shadow p-5 hover:shadow-md transition">
+        <p class="text-gray-500 text-sm">Productos</p>
+        <p class="text-3xl font-bold text-gray-800 mt-1" id="total-productos">—</p>
+      </a>
+      <a href="empleados.html" class="bg-white rounded-xl shadow p-5 hover:shadow-md transition">
+        <p class="text-gray-500 text-sm">Empleados</p>
+        <p class="text-3xl font-bold text-gray-800 mt-1" id="total-empleados">—</p>
+      </a>
+      <a href="facturas.html" class="bg-white rounded-xl shadow p-5 hover:shadow-md transition">
+        <p class="text-gray-500 text-sm">Facturas</p>
+        <p class="text-3xl font-bold text-gray-800 mt-1" id="total-facturas">—</p>
+      </a>
+    </div>
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script>
+    // Cargar totales del dashboard
+    async function cargarTotales() {
+      const endpoints = ['clientes', 'empleados', 'citas', 'productos', 'facturas'];
+      for (const ep of endpoints) {
+        try {
+          const data = await api.get(ep);
+          document.getElementById(`total-${ep}`).textContent = data.length;
+        } catch (e) {
+          document.getElementById(`total-${ep}`).textContent = 'N/A';
+        }
+      }
+    }
+    cargarTotales();
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "barberia-frontend",
+  "version": "1.0.0",
+  "description": "Frontend del sistema de barbería",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./css/main.css -o ./css/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
